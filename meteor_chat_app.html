@@ -1,0 +1,59 @@
+<head>
+  <title>Meteor Chat App</title>
+</head>
+
+<body>
+   {{> loginButtons}}
+
+  <h1>Welcome to Chat App!</h1>
+  {{#if currentUser}}
+  {{> rooms}}
+
+  {{> inputroom}}
+
+
+  {{> messages}}
+
+  {{> input}}
+  {{> welcome}}
+  {{/if}}
+
+  
+</body>
+
+<template name="welcome">
+  <p>
+    Welcome to the example chat app! Please log in to show your username.
+  </p>
+</template>
+
+<template name="messages">
+	<div class='messages' style="display: none">
+	  {{#each messages}}
+	    <strong>{{name}}:</strong> {{message}}<br>
+	  {{/each}}
+	</div>
+</template>
+
+<template name="input">
+	<div class='messages' style="display: none">
+	  <p>Message: <input type="text" id="message"></p>
+	</div>  
+</template>
+
+
+<template name="rooms">
+	<div class='rooms'>
+	  {{#each rooms}}
+	    <button id="{{_id}}"> {{room_name}} </button>
+	    <br>
+	  {{/each}}
+	</div>
+</template>
+
+<template name="inputroom">
+	<div class='rooms'>
+	  <p>Room Name: <input type="text" id="room"></p>
+	</div>
+</template>
+
